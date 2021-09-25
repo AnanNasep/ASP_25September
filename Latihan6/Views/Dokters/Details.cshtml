@@ -1,0 +1,22 @@
+﻿@model Latihan6.Models.Dokter
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dokter</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Nama Dokter</dt>
+        <dd>@Html.DisplayFor(model => model.NamaDokter)</dd>
+        <dt>Jenis Kelamin</dt>
+        <dd>@Html.DisplayFor(model => model.JKelamin)</dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KodeDokter }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rumahsakit_25092021ModelStoreContainer" CdmEntityContainer="rumahsakit_25092021Entities">
+    <EntitySetMapping Name="Dokters">
+      <EntityTypeMapping TypeName="rumahsakit_25092021Model.Dokter">
+        <MappingFragment StoreEntitySet="Dokter">
+          <ScalarProperty Name="KodeDokter" ColumnName="KodeDokter" />
+          <ScalarProperty Name="NamaDokter" ColumnName="NamaDokter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

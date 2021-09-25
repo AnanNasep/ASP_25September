@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="rumahsakit_25092021Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dokter">
+    <Key>
+      <PropertyRef Name="KodeDokter" />
+    </Key>
+    <Property Name="KodeDokter" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NamaDokter" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JKelamin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="rumahsakit_25092021Entities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dokters" EntityType="Self.Dokter" />
+    <EntitySet Name="Kelas" EntityType="rumahsakit_25092021Model.Kela" />
+    <EntitySet Name="Ruangs" EntityType="rumahsakit_25092021Model.Ruang" />
+    <AssociationSet Name="fk_Ruang_KodeKelas" Association="rumahsakit_25092021Model.fk_Ruang_KodeKelas">
+      <End Role="Kela" EntitySet="Kelas" />
+      <End Role="Ruang" EntitySet="Ruangs" />
+    </AssociationSet>
+    <EntitySet Name="Pasiens" EntityType="rumahsakit_25092021Model.Pasien" />
+  </EntityContainer>
+  <EntityType Name="Kela">
+    <Key>
+      <PropertyRef Name="KodeKelas" />
+    </Key>
+    <Property Name="KodeKelas" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="NamaKelas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Harga" Type="Decimal" Precision="15" Scale="0" />
+    <NavigationProperty Name="Ruangs" Relationship="rumahsakit_25092021Model.fk_Ruang_KodeKelas" FromRole="Kela" ToRole="Ruang" />
+  </EntityType>
+  <EntityType Name="Ruang">
+    <Key>
+      <PropertyRef Name="KodeRuang" />
+    </Key>
+    <Property Name="KodeRuang" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="NamaRuang" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="KodeKelas" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Kela" Relationship="rumahsakit_25092021Model.fk_Ruang_KodeKelas" FromRole="Ruang" ToRole="Kela" />
+  </EntityType>
+  <Association Name="fk_Ruang_KodeKelas">
+    <End Type="rumahsakit_25092021Model.Kela" Role="Kela" Multiplicity="0..1" />
+    <End Type="rumahsakit_25092021Model.Ruang" Role="Ruang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kela">
+        <PropertyRef Name="KodeKelas" />
+      </Principal>
+      <Dependent Role="Ruang">
+        <PropertyRef Name="KodeKelas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Pasien">
+    <Key>
+      <PropertyRef Name="KodePasien" />
+    </Key>
+    <Property Name="KodePasien" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="NamaPasien" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Foto" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

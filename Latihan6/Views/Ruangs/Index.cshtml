@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Latihan6.Models.Ruang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NamaRuang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kela.NamaKelas)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamaRuang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kela.NamaKelas)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KodeRuang }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KodeRuang }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KodeRuang })
+        </td>
+    </tr>
+}
+
+</table>

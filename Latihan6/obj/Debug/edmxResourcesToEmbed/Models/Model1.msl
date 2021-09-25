@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="rumahsakit_25092021ModelStoreContainer" CdmEntityContainer="rumahsakit_25092021Entities2">
+    <EntitySetMapping Name="Dokters">
+      <EntityTypeMapping TypeName="rumahsakit_25092021Model.Dokter">
+        <MappingFragment StoreEntitySet="Dokter">
+          <ScalarProperty Name="JKelamin" ColumnName="JKelamin" />
+          <ScalarProperty Name="KodeDokter" ColumnName="KodeDokter" />
+          <ScalarProperty Name="NamaDokter" ColumnName="NamaDokter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kelas">
+      <EntityTypeMapping TypeName="rumahsakit_25092021Model.Kela">
+        <MappingFragment StoreEntitySet="Kelas">
+          <ScalarProperty Name="Harga" ColumnName="Harga" />
+          <ScalarProperty Name="NamaKelas" ColumnName="NamaKelas" />
+          <ScalarProperty Name="KodeKelas" ColumnName="KodeKelas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ruangs">
+      <EntityTypeMapping TypeName="rumahsakit_25092021Model.Ruang">
+        <MappingFragment StoreEntitySet="Ruang">
+          <ScalarProperty Name="KodeKelas" ColumnName="KodeKelas" />
+          <ScalarProperty Name="NamaRuang" ColumnName="NamaRuang" />
+          <ScalarProperty Name="KodeRuang" ColumnName="KodeRuang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pasiens">
+      <EntityTypeMapping TypeName="rumahsakit_25092021Model.Pasien">
+        <MappingFragment StoreEntitySet="Pasien">
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="NamaPasien" ColumnName="NamaPasien" />
+          <ScalarProperty Name="KodePasien" ColumnName="KodePasien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
